@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  phpapp1:
+    build: .
+    container_name: phpapp1
+    expose:
+      - "80"
+
+  phpapp2:
+    build: .
+    container_name: phpapp2
+    expose:
+      - "80"
+
+  phpapp3:
+    build: .
+    container_name: phpapp3
+    expose:
+      - "80"
+
+  load-balancer:
+    build:
+      context: load-balancer/.
+    ports:
+      - '9000:80'
+

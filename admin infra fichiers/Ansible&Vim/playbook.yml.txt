@@ -1,0 +1,16 @@
+---
+- name: Playbook pour installer et configurer Vim
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Installer Vim
+      apt:
+        name: vim
+        state: present
+
+    - name: Télécharger le fichier .vimrc dans /etc/skel/
+      get_url:
+        url: https://gist.github.com/simonista/8703722
+        dest: /etc/skel/.vimrc
+        mode: '0644'

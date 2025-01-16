@@ -1,0 +1,10 @@
+
+# Utiliser une image PHP officielle avec Apache
+FROM php:7.4-apache
+
+# Copier le fichier index.php dans le répertoire par défaut de Apache
+COPY index.php /var/www/html/
+
+# Exposer le port 80 pour accéder à l'application
+EXPOSE 80
+
